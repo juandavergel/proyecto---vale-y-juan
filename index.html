@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestra historia — Juan & Valeria</title>
+  <meta name="description" content="Una página dedicada a nuestra historia juntos. Desde los 13 años." />
+  <meta property="og:title" content="Nuestra historia" />
+  <meta property="og:description" content="Desde los 13. Para siempre en la memoria." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --crema: #FAF5EE;
+      --crema-claro: #FDF9F3;
+      --crema-oscuro: #F3EADC;
+      --dorado: #B8860B;
+      --dorado-claro: #D4B483;
+      --dorado-muy-claro: #F5E6C8;
+      --marron: #3A2E26;
+      --marron-suave: #5A4A3E;
+      --negro: #1F1B17;
+      --sombra-suave: 0 1px 2px rgba(58, 46, 38, 0.06), 0 4px 16px rgba(58, 46, 38, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+      background: var(--crema);
+      color: var(--marron);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* ---------- Ornamento dorado entre secciones ---------- */
+    .ornamento {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 3rem auto;
+      max-width: 280px;
+      color: var(--dorado);
+    }
+    .ornamento .linea {
+      flex: 1;
+      height: 1px;
+      background: var(--dorado);
+      opacity: 0.5;
+    }
+    .ornamento svg { width: 14px; height: 14px; opacity: 0.8; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--crema) 0%, var(--crema-oscuro) 100%);
+      position: relative;
+    }
+
+    .hero .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 1.05;
+      color: var(--negro);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .anios {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--dorado);
+      letter-spacing: 0.3em;
+      margin-bottom: 3rem;
+    }
+
+    .hero .dedicatoria {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--marron-suave);
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    .hero .foto-hero {
+      width: min(420px, 80vw);
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(135deg, var(--dorado-muy-claro), var(--dorado-claro));
+      border: 1px solid var(--dorado);
+      box-shadow: 0 0 0 8px var(--crema), 0 0 0 9px var(--dorado), 0 20px 60px rgba(58, 46, 38, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--marron-suave);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    .hero .foto-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .scroll-hint {
+      color: var(--dorado);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      animation: bounce 2.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(6px); opacity: 0.4; }
+    }
+
+    /* ---------- CARTA ---------- */
+    .seccion {
+      padding: 6rem 1.5rem;
+      max-width: 100%;
+    }
+
+    .carta {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .carta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--negro);
+      margin-bottom: 2.5rem;
+    }
+
+    .carta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.8;
+      color: var(--marron);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .carta .firma {
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--dorado);
+      margin-top: 2.5rem;
+      text-align: right;
+    }
+
+    /* ---------- LÍNEA DE TIEMPO ---------- */
+    .timeline-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      color: var(--negro);
+      margin-bottom: 4rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--dorado);
+      opacity: 0.4;
+      transform: translateX(-50%);
+    }
+
+    .hito {
+      position: relative;
+      width: 50%;
+      padding: 2rem 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hito:nth-child(odd) {
+      margin-left: 0;
+      text-align: right;
+    }
+
+    .hito:nth-child(even) {
+      margin-left: 50%;
+      text-align: left;
+    }
+
+    .hito::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--crema);
+      border: 2px solid var(--dorado);
+      border-radius: 50%;
+    }
+
+    .hito:nth-child(odd)::before { right: -6px; }
+    .hito:nth-child(even)::before { left: -6px; }
+
+    .hito .anio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--dorado);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .hito .titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--negro);
+      margin-bottom: 0.8rem;
+    }
+
+    .hito .desc {
+      font-size: 0.95rem;
+      color: var(--marron-suave);
+      line-height: 1.7;
+    }
+
+    .hito .mini-foto {
+      margin-top: 1rem;
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, var(--dorado-muy-claro), var(--dorado-claro));
+      border: 1px solid var(--dorado);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--marron-suave);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      box-shadow: var(--sombra-suave);
+      overflow: hidden;
+    }
+
+    .hito .mini-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- GALERÍA ---------- */
+    .galeria-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      color: var(--negro);
+      margin-bottom: 3.5rem;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .foto {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--dorado-muy-claro), var(--dorado-claro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--marron-suave);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(184, 134, 11, 0.2);
+      overflow: hidden;
+    }
+
+    .foto:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(58, 46, 38, 0.15);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- SECCIÓN HIJO ---------- */
+    .seccion-hijo {
+      background: var(--crema-claro);
+      padding: 6rem 1.5rem;
+    }
+
+    .hijo-contenido {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hijo-foto {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, var(--dorado-muy-claro), var(--dorado-claro));
+      border: 1px solid var(--dorado);
+      box-shadow: 0 0 0 6px var(--crema), 0 0 0 7px var(--dorado);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--marron-suave);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      overflow: hidden;
+    }
+
+    .hijo-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hijo-texto h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      color: var(--negro);
+      margin-bottom: 1.8rem;
+    }
+
+    .hijo-texto p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--marron);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ---------- CIERRE ---------- */
+    .cierre {
+      padding: 8rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--crema) 0%, var(--crema-oscuro) 100%);
+    }
+
+    .cierre .frase {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--negro);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.3;
+    }
+
+    .cierre .fecha {
+      font-size: 0.8rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-top: 3rem;
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 20, 16, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 2rem;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox-contenido {
+      max-width: 90vw;
+      max-height: 85vh;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, var(--dorado-muy-claro), var(--dorado-claro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--marron);
+      box-shadow: 0 0 0 4px var(--crema), 0 20px 80px rgba(0,0,0,0.5);
+      width: 900px;
+    }
+
+    .lightbox-contenido img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .lightbox button {
+      position: absolute;
+      background: transparent;
+      border: 1px solid rgba(250, 245, 238, 0.4);
+      color: var(--crema);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .lightbox button:hover {
+      background: rgba(250, 245, 238, 0.1);
+      border-color: var(--crema);
+    }
+
+    .lightbox .cerrar { top: 2rem; right: 2rem; }
+    .lightbox .prev { left: 2rem; top: 50%; transform: translateY(-50%); }
+    .lightbox .next { right: 2rem; top: 50%; transform: translateY(-50%); }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .seccion { padding: 4rem 1.25rem; }
+
+      .timeline::before { left: 20px; }
+
+      .hito {
+        width: 100%;
+        padding: 1.5rem 0 1.5rem 3rem;
+        margin-bottom: 0;
+        text-align: left !important;
+      }
+
+      .hito:nth-child(even) { margin-left: 0; }
+      .hito::before { left: 14px !important; right: auto !important; top: 2rem; }
+
+      .hijo-contenido {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .galeria { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+
+      .lightbox .cerrar { top: 1rem; right: 1rem; }
+      .lightbox .prev { left: 0.5rem; }
+      .lightbox .next { right: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="eyebrow">Nuestra historia</div>
+    <h1 class="serif">Juan <span style="font-style: normal; color: var(--dorado); font-weight: 400;">&amp;</span> Valeria</h1>
+    <div class="anios">2011 — 2026</div>
+
+    <div class="dedicatoria">Para Vale. Y para que un día John conozca nuestra historia.</div>
+
+    <div class="foto-hero"><img src="fotos/familia.jpg" alt="Juan, Valeria y John" /></div>
+
+    <div class="scroll-hint">Desliza ↓</div>
+  </section>
+
+  <!-- ============ CARTA ============ -->
+  <section class="seccion">
+    <div class="carta">
+      <h2>Para ti, Valeria</h2>
+
+      <div class="ornamento">
+        <div class="linea"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        <div class="linea"></div>
+      </div>
+
+      <p>
+        Vivíamos frente con frente, en el mismo conjunto de Villas del Mar.
+        Ahí empezó todo, sin que ninguno de los dos supiera lo que venía.
+      </p>
+
+      <p>
+        Solo tú y yo sabemos lo duro que fue nuestra vida. Nadie más lo va
+        a entender, y está bien que así sea. Es nuestro.
+      </p>
+
+      <p>
+        Te agradezco por haber sido una mujer pasiva y respetada. Por la
+        calma que traías, por el respeto con el que caminabas por la vida.
+        Eso no se aprende — eso se es.
+      </p>
+
+      <p>
+        Me duele que te hayas dejado influenciar. Ese es el único lugar
+        donde todavía me duele, y no sé si algún día va a dejar de doler.
+      </p>
+
+      <p>
+        Si un día John lee esto, quiero que sepa una cosa: a su mamá la
+        amo mucho. Y que ustedes dos, ella y él, siempre van a ser mi
+        mayor logro y mi mayor tesoro.
+      </p>
+
+      <div class="firma">— Juan</div>
+    </div>
+  </section>
+
+  <div class="ornamento">
+    <div class="linea"></div>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+    <div class="linea"></div>
+  </div>
+
+  <!-- ============ LÍNEA DE TIEMPO ============ -->
+  <section class="seccion">
+    <h2 class="timeline-titulo">Los años que caminamos</h2>
+
+    <div class="timeline">
+      <div class="hito">
+        <div class="anio">2011</div>
+        <div class="titulo">Nos conocimos</div>
+        <div class="desc">Teníamos 13 años. Nadie sabía entonces lo que venía.</div>
+        <div class="mini-foto">Foto</div>
+      </div>
+
+      <div class="hito">
+        <div class="anio">2013</div>
+        <div class="titulo">Nos hicimos novios</div>
+        <div class="desc">Teníamos 15. Ahí empezó todo, y duró trece años.</div>
+        <div class="mini-foto">Foto</div>
+      </div>
+
+      <div class="hito">
+        <div class="anio">2020</div>
+        <div class="titulo">Empezamos a vivir juntos</div>
+        <div class="desc">Siete años después de hacernos novios, dejamos de estar frente a frente y empezamos a estar lado a lado.</div>
+        <div class="mini-foto"><img src="fotos/mirador-2020.jpg" alt="Juan y Valeria en un mirador, 2020" /></div>
+      </div>
+
+      <div class="hito">
+        <div class="anio">2024</div>
+        <div class="titulo">Nació John</div>
+        <div class="desc">El día que todo cambió. El día que fuimos tres.</div>
+        <div class="mini-foto">Foto</div>
+      </div>
+
+      <div class="hito">
+        <div class="anio">2026</div>
+        <div class="titulo">Hoy</div>
+        <div class="desc">[Escribe aquí lo que quieras dejar dicho sobre este momento.]</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornamento">
+    <div class="linea"></div>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+    <div class="linea"></div>
+  </div>
+
+  <!-- ============ GALERÍA ============ -->
+  <section class="seccion">
+    <h2 class="galeria-titulo">Momentos</h2>
+
+    <div class="galeria" id="galeria">
+      <div class="foto"><img src="fotos/atardecer.jpg" alt="Atardecer" /></div>
+      <div class="foto"><img src="fotos/formal.jpg" alt="Evento formal" /></div>
+      <div class="foto"><img src="fotos/mirador-2020.jpg" alt="Mirador 2020" /></div>
+    </div>
+  </section>
+
+  <!-- ============ HIJO ============ -->
+  <section class="seccion-hijo">
+    <div class="hijo-contenido">
+      <div class="hijo-foto"><img src="fotos/familia.jpg" alt="Juan, Valeria y John" /></div>
+      <div class="hijo-texto">
+        <h2>Y llegó John</h2>
+        <p>
+          John llegó en 2024. Con él, todo tuvo sentido.
+        </p>
+        <p>
+          Pase lo que pase entre Vale y yo, él siempre va a ser nuestro
+          — y nosotros, siempre vamos a ser suyos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="cierre">
+    <div class="ornamento">
+      <div class="linea"></div>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+      <div class="linea"></div>
+    </div>
+
+    <div class="frase">Gracias por cada día.</div>
+
+    <div class="fecha">Abril · 2026</div>
+  </section>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Visor de fotos">
+    <button class="cerrar" id="cerrar" aria-label="Cerrar">✕</button>
+    <button class="prev" id="prev" aria-label="Foto anterior">‹</button>
+    <div class="lightbox-contenido" id="lightboxContenido">Foto 1</div>
+    <button class="next" id="next" aria-label="Foto siguiente">›</button>
+  </div>
+
+  <script>
+    (function () {
+      const fotos = Array.from(document.querySelectorAll('.galeria .foto'));
+      const lightbox = document.getElementById('lightbox');
+      const contenido = document.getElementById('lightboxContenido');
+      const cerrar = document.getElementById('cerrar');
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      let idx = 0;
+
+      function render() {
+        const foto = fotos[idx];
+        const img = foto.querySelector('img');
+        if (img) {
+          contenido.innerHTML = '';
+          const clone = img.cloneNode();
+          contenido.appendChild(clone);
+        } else {
+          contenido.textContent = foto.textContent;
+        }
+      }
+
+      function abrir(i) {
+        idx = i;
+        render();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function cerrarLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function mover(delta) {
+        idx = (idx + delta + fotos.length) % fotos.length;
+        render();
+      }
+
+      fotos.forEach((f, i) => f.addEventListener('click', () => abrir(i)));
+      cerrar.addEventListener('click', cerrarLightbox);
+      prev.addEventListener('click', () => mover(-1));
+      next.addEventListener('click', () => mover(1));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) cerrarLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') cerrarLightbox();
+        if (e.key === 'ArrowLeft') mover(-1);
+        if (e.key === 'ArrowRight') mover(1);
+      });
+    })();
+  </script>
+
+</body>
+</html>
